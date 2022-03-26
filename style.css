@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Poppins:100,200,300,400,500,600,700,800,900&display=swap');
+
+/* Zerando os atributos da página e adicionando
+o estilo da fonte em toda a página*/
+*{
+    margin: 0;
+    padding: 0;
+    font-family: poppins, sans-serif;
+}
+
+/* Aplicando atributos ao body para aplicar ao filhos.*/
+body{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #131313;
+}
+
+.container{
+    position: relative;
+}
+
+/* Aplicando card*/
+.container .card{
+    position: relative;
+    width: 320px;
+    height: 450px;
+    background: #232323;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+/* Inserindo o semi círculo verde interativo.*/
+.container .card:before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #9bdc28;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.container .card:hover:before{
+    clip-path: circle(300px at 80% -20%);
+}
+
+/* Aplicando a marca d'água Nike*/
+.container .card:after{
+    content: "Nike";
+    position: absolute;
+    top: 30%;
+    left: -20%;
+    font-size: 12em;
+    font-weight: 800;
+    font-style: italic;
+    color: rgba(255,255,255,0.04);
+}
+
+.container .card .imgBx{
+    position:absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10000;
+    width: 100%;
+    height: 220px;
+    transition: 0.5s;
+    display:flex;
+}
