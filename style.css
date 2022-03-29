@@ -8,7 +8,7 @@ o estilo da fonte em toda a página*/
     font-family: poppins, sans-serif;
 }
 
-/* Aplicando atributos ao body para aplicar ao filhos.*/
+/* Aplicando atributos ao body, tênis e informações, para aplicar ao filhos.*/
 body{
     display:flex;
     justify-content: center;
@@ -17,11 +17,12 @@ body{
     background: #131313;
 }
 
+/* .container é a "`caixa principal" desta página. */
 .container{
     position: relative;
 }
 
-/* Aplicando card*/
+/* .card é first child do .container, o quadrado cinza mais claro q contorna o card */
 .container .card{
     position: relative;
     width: 320px;
@@ -60,13 +61,156 @@ body{
     color: rgba(255,255,255,0.04);
 }
 
-.container .card .imgBx{
+/* a partir daqui estamos mexendo na imagem, tênis 
+
+aqui estamos mexendo no comportamento do tênis */
+.container .card .imgBx {
     position:absolute;
     top: 50%;
+    left: 10%;
     transform: translateY(-50%);
     z-index: 10000;
-    width: 100%;
+    width: 70%;
     height: 220px;
     transition: 0.5s;
-    display:flex;
+    align-items: center;
+}
+
+/* aqui estamos mexendo na animação do tênis */
+.container .card:hover .imgBx{
+    top:0%;
+    transform: translateY(0%);
+}
+
+/* aqui estamos mexendo no tamanho e rotacionamos o tênis*/
+.container .card .imgBx img{
+    width: 250px;
+    height: 250px;
+    transform: rotate(-25deg);
+}
+
+/* aqui estamos mexendo na parte do texto do card*/
+.container .card .contentBx{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    transition: 1s;
+    z-index: 10;
+}
+
+/* aqui estamos mexendo na animação do texto do card*/
+.container .card:hover .contentBx{
+    height: 210px;
+}
+
+/* aqui estamos mexendo no texto do card "Nike Shoes" */
+.container .card h2{
+    position: relative;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #fff
+}
+
+/* aqui estamos mexendo na div size; como as mesmas configurações se aplicam a outra
+div, podemos colocar o marcador separador por vírgula como abaixo, nas divs "size" e "color"*/
+.container .card .contentBx .size,
+.container .card .contentBx .color{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 20px;
+    transition: 0.5s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* aqui estamos mexendo na animação em delay do bloco de tamanhos */
+.container .card:hover .contentBx .size{
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.5s;
+}
+
+/* aqui estamos mexendo na animação em delay do bloco de cores */
+.container .card:hover .contentBx .color{
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.7s;
+}
+
+/* aqui estamos mexendo no texto do card "Size : " */
+.container .card .contentBx .size h3,
+.container .card .contentBx .color h3{
+    color:#fff;
+    font-weight: 300;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-right: 10px;
+}
+
+/* aqui estamos mexendo nos quadradinhos onde há informação dos tamanhos */
+.container .card .contentBx .size span{
+    width:26px;
+    height:26px;
+    text-align: center;
+    line-height: 26px;
+    font-size: 14px;
+    display: inline-block;
+    color: #111;
+    background: #fff;
+    margin: 0 5px;
+    transition: 0.5s;
+    border-radius: 4px;
+    cursor: pointer;
+}
+/* aqui estamos mexendo na animação dos quadradinhos onde há informação dos tamanhos */
+.container .card .contentBx .size span:hover{
+    background: #9bdc28;
+}
+
+/* aqui estamos mexendo nas bolinhas de outras cores */
+.container .card .contentBx .color span{
+    width: 20px;
+    height: 20px;
+    background: #ff0;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+/* aqui estamos mudando a cor da primeira bolinha */
+.container .card .contentBx .color span:nth-child(2){
+    background: #9bdc28;
+}
+/* aqui estamos mudando a cor da segunda bolinha */
+.container .card .contentBx .color span:nth-child(3){
+    background: #03a9f4;
+}
+/* aqui estamos mudando a cor da terceira bolinha */
+.container .card .contentBx .color span:nth-child(4){
+    background: #e91e63;
+}
+
+/* aqui estamos mexendo no link "Buy Now" */
+.container .card .contentBx a{
+    display: inline-block;
+    padding: 10px 20px;
+    background: #fff;
+    border-radius:4px;
+    margin-top: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    color: #111;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: 0.5s;
+}
+
+.container .card:hover .contentBx a{
+    opacity: 1;
+    transform: translateY(0px);
+    transition-delay: 0.95s;
 }
